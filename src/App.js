@@ -9,6 +9,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Explorer from "./components/Explorer";
+import Settings from "./components/Settings";
 
 function App() {
     return (
@@ -20,7 +21,8 @@ function App() {
                     <Tab label="Multisend"/>
                     <Tab label="Settings" sx={{ position: "absolute", right: "0px" }}/>
                 </Tabs>
-                <Explorer />
+                {/*<Explorer />*/}
+                <Settings />
             </Container>
         </div>
     );
