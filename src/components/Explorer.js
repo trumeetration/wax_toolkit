@@ -21,56 +21,8 @@ function Explorer(props) {
             justifyContent="flex-start"
             spacing={4}
         >
-            {/*<Card variant="outlined" sx={{
-                        width: 250,
-                        height: 300
-                    }}>
-                        <CardContent>
-                            <Typography>
-                                Collections
-                            </Typography>
-                            <List sx={{
-                                width: "100%"
-                            }}>
-                                <ListItem disablePadding>
-                                    <ListItemButton dense>
-                                        <ListItemIcon>
-                                            <Checkbox
-                                                edge="start"
-                                                disableRipple
-                                            />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Collection 1"/>
-                                    </ListItemButton>
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <ListItemButton dense>
-                                        <ListItemIcon>
-                                            <Checkbox
-                                                edge="start"
-                                                disableRipple
-                                            />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Collection 2"/>
-                                    </ListItemButton>
-                                </ListItem>
-                                <ListItem disablePadding>
-                                    <ListItemButton dense>
-                                        <ListItemIcon>
-                                            <Checkbox
-                                                edge="start"
-                                                disableRipple
-                                            />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Collection 3"/>
-                                    </ListItemButton>
-                                </ListItem>
-                            </List>
-                        </CardContent>
-                    </Card>*/}
-
-            <Accordion sx={{ width: "250px" }} >
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Accordion sx={{width: "250px"}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                     <Typography>
                         Collections
                     </Typography>
@@ -119,62 +71,62 @@ function Explorer(props) {
             <Stack sx={{width: "100%"}} spacing={2}>
                 <Paper
                     component="form"
-                    sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 300, alignSelf: "end"}}
+                    sx={{p: '2px 4px', display: 'flex', alignItems: 'center', width: 300, alignSelf: "end"}}
                 >
                     <InputBase
-                        sx={{ ml: 1, flex: 1}}
+                        sx={{ml: 1, flex: 1}}
                         placeholder="Wallet address"
                     />
-                    <IconButton type="submit" sx={{ p: '10px'}}>
-                        <SearchIcon />
+                    <IconButton type="submit" sx={{p: '10px'}}>
+                        <SearchIcon/>
                     </IconButton>
                 </Paper>
-                <div sx={{ display: "flex", justifyContent: "end" }}>
-                    <Grid container spacing="47px" sx={{ marginLeft: "0px" }}>
+                <div sx={{display: "flex", justifyContent: "end"}}>
+                    <Grid container spacing="47px" sx={{marginLeft: "0px"}}>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                         <Grid item>
-                            <AssetCard />
+                            <AssetCard/>
                         </Grid>
                     </Grid>
                 </div>
@@ -184,7 +136,9 @@ function Explorer(props) {
                 />
             </Stack>
         </Stack>
-    )
+    );
+
+
 }
 
 export default Explorer;
