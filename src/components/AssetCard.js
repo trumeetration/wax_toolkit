@@ -4,7 +4,7 @@ import {Box, Card, CardMedia, Checkbox, Divider, Typography} from "@mui/material
 function AssetCard() {
     return (
         <Card variant="outlined" sx={{width: "200px", position: "relative"}}>
-            <Checkbox size="small" sx={{position: "absolute", left: 0, top: 0, padding: "8px 10px"}}/>
+            {/*<Checkbox size="small" sx={{position: "absolute", left: 0, top: 0, padding: "8px 10px"}}/>*/}
             <CardMedia
                 sx={{padding: "10px 10px", width: "auto", margin: "auto"}}
                 component="img"

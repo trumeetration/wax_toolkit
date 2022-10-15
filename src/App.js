@@ -10,6 +10,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Explorer from "./components/Explorer";
 import Settings from "./components/Settings";
+import Status from "./components/Status";
 
 function App() {
     return (
@@ -17,12 +18,12 @@ function App() {
             <Container maxWidth="xl">
                 <Tabs centered sx={{ position: "relative" }}>
                     <Tab label="Explorer"/>
-                    <Tab label="Burner"/>
+                    <Tab label="Status"/>
                     <Tab label="Multisend"/>
                     <Tab label="Settings" sx={{ position: "absolute", right: "0px" }}/>
                 </Tabs>
                 {/*<Explorer />*/}
-                <Settings />
+                <Status />
             </Container>
         </div>
     );
