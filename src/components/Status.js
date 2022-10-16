@@ -1,12 +1,11 @@
 import {Grid} from "@mui/material";
-import AssetCard from "./AssetCard";
 import WalletStatusCard from "./WalletStatusCard";
 
 
 function Status(props) {
     return (
         <div>
-            <Grid container spacing="47px" sx={{marginLeft: "0px"}}>
+            <Grid container spacing="30px" sx={{marginLeft: "0px"}}>
                 <Grid item>
                     <WalletStatusCard/>
                 </Grid>

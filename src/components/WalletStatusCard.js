@@ -2,7 +2,7 @@ import {Box, Button, Card, CardMedia, Checkbox, CircularProgress, Divider, Stack
 import {LinearProgress} from "@mui/material";
 
 
-function AssetCard() {
+function WalletStatusCard() {
     return (
         <Card variant="outlined" sx={{width: "330px", position: "relative"}}>
             <Typography variant="h6" align="center">bumbalumba35</Typography>
@@ -34,4 +34,4 @@ function AssetCard() {
     )
 }
 
-export default AssetCard;
+export default WalletStatusCard;

@@ -11,6 +11,8 @@ import '@fontsource/roboto/700.css';
 import Explorer from "./components/Explorer";
 import Settings from "./components/Settings";
 import Status from "./components/Status";
+import AccountsModal from "./components/AccountsModal";
+import Disperse from "./components/Disperse";
 
 function App() {
     return (
@@ -18,12 +20,15 @@ function App() {
             <Container maxWidth="xl">
                 <Tabs centered sx={{ position: "relative" }}>
                     <Tab label="Explorer"/>
-                    <Tab label="Status"/>
-                    <Tab label="Multisend"/>
+                    <Tab label="Resources"/>
+                    <Tab label="Disperse"/>
                     <Tab label="Settings" sx={{ position: "absolute", right: "0px" }}/>
                 </Tabs>
                 {/*<Explorer />*/}
-                <Status />
+                {/*<Status />*/}
+                {/*<Settings/>*/}
+                {/*<AccountsModal/>*/}
+                <Disperse/>
             </Container>
         </div>
     );
