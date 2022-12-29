@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SearchIcon from "@mui/icons-material/Search";
-import AssetCard from "./AssetCard";
+import AssetCard from "../components/AssetCard";
 
 
 function Explorer(props) {

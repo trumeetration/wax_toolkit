@@ -1,8 +1,8 @@
 import {Button, Divider, Grid, IconButton, InputBase, Paper, TextField, Typography} from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import AccountCard from "./AccountCard";
+import AccountCard from "../components/AccountCard";
 import AddIcon from "@mui/icons-material/Add";
-import AccountsModal from "./AccountsModal";
+import AccountsModal from "../components/AccountsModal";
 
 function Disperse(props) {
     return (

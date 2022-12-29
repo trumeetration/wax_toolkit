@@ -11,10 +11,10 @@ import {
     TextField,
     Typography
 } from "@mui/material";
-import AccountCard from "./AccountCard";
+import AccountCard from "../components/AccountCard";
 import AddIcon from '@mui/icons-material/Add';
 import CheckIcon from '@mui/icons-material/Check';
-import AccountsModal from "./AccountsModal";
+import AccountsModal from "../components/AccountsModal";
 
 function Settings(props) {
     return (
