@@ -7,8 +7,9 @@ import Settings from "../pages/Settings";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import * as React from 'react';
+import Disperse from "../pages/Disperse";
 
-const WaxToolLayout = ({setActivePage}) => {
+const WaxToolLayout = () => {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -19,15 +20,17 @@ const WaxToolLayout = ({setActivePage}) => {
         <BrowserRouter>
             <div className="App">
                 <Container maxWidth="xl">
-                    <Tabs value={value} onChange={handleChange} centered sx={{ position: "relative" }}>
+                    <Tabs value={value} onChange={handleChange} centered sx={{ position: "relative", marginBottom: "10px" }}>
                         <Tab component={Link} label="Explorer" to="/"/>
                         <Tab component={Link} label="Resources" to="/resources"/>
+                        <Tab component={Link} label="Disperse" to="/disperse"/>
                         <Tab component={Link} label="Settings" to="/settings" sx={{ position: "absolute", right: "0px" }}/>
                     </Tabs>
                     <Routes>
                         <Route exact path="/" element={<Explorer />}/>
                         <Route exact path="/resources" element={<Status />}/>
                         <Route exact path="/settings" element={<Settings />}/>
+                        <Route exact path="/disperse" element={<Disperse />}/>
                         <Route path="*" element={<Navigate replace to="/" />}/>
                     </Routes>
                 </Container>

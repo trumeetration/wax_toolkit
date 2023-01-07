@@ -11,9 +11,23 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SearchIcon from "@mui/icons-material/Search";
 import AssetCard from "../components/AssetCard";
+import { useDispatch, useSelector } from 'react-redux';
+import { explorerInputAddress } from "../redux/actions";
 
 
 function Explorer(props) {
+    console.log('Explorer props > ', props);
+    const inputAddress = useSelector(state => {
+        const { explorerReducer } = state;
+        return explorerReducer.text;
+    })
+    const dispatch = useDispatch();
+
+    const handleInputAddress = (e) => {
+        // console.log('handle address > ', e.target.value);
+        dispatch(explorerInputAddress(e.target.value));
+    }
+
     return (
         <Stack
             direction="row"
@@ -76,6 +90,7 @@ function Explorer(props) {
                     <InputBase
                         sx={{ml: 1, flex: 1}}
                         placeholder="Wallet address"
+                        onChange={handleInputAddress}
                     />
                     <IconButton type="submit" sx={{p: '10px'}}>
                         <SearchIcon/>

@@ -1,22 +1,46 @@
 import {
-    Box,
     Button,
     Divider,
     Grid,
     IconButton,
     InputBase,
-    Modal,
     Paper,
-    Stack,
-    TextField,
     Typography
 } from "@mui/material";
 import AccountCard from "../components/AccountCard";
 import AddIcon from '@mui/icons-material/Add';
 import CheckIcon from '@mui/icons-material/Check';
 import AccountsModal from "../components/AccountsModal";
+import { useDispatch, useSelector } from 'react-redux';
+import { settingsInputEndpoint, settingsInputNewAddress, settingsInputPrivateKey } from "../redux/actions";
 
 function Settings(props) {
+    console.log('Settings props > ', props);
+    const inputEndpoint = useSelector(state => {
+        const { settingsReducer } = state;
+        return settingsReducer.endpoint;
+    })
+    const inputNewAddress = useSelector(state => {
+        const { settingsReducer } = state;
+        return settingsReducer.newAddress;
+    })
+    const inputPrivateKey = useSelector(state => {
+        const { settingsReducer } = state;
+        return settingsReducer.privateKey;
+    })
+
+    const dispatch = useDispatch();
+
+    const handleInputEndpoint = (e) => {
+        dispatch(settingsInputEndpoint(e.target.value));
+    }
+    const handleInputNewAddress = (e) => {
+        dispatch(settingsInputNewAddress(e.target.value));
+    }
+    const handleInputPrivateKey = (e) => {
+        dispatch(settingsInputPrivateKey(e.target.value));
+    }
+
     return (
         <div>
             <div>
@@ -29,6 +53,7 @@ function Settings(props) {
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         placeholder="https://wax.greymass.com"
+                        onChange={handleInputEndpoint}
                     />
                     <IconButton type="submit" sx={{ p: '10px' }}>
                         <CheckIcon/>
@@ -69,6 +94,7 @@ function Settings(props) {
                         <InputBase
                             sx={{ ml: 1, flex: 1 }}
                             placeholder="Wallet address"
+                            onChange={handleInputNewAddress}
                         />
                         <IconButton type="submit" sx={{ p: '10px' }}>
                             <AddIcon/>
@@ -93,6 +119,7 @@ function Settings(props) {
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         placeholder="Private key"
+                        onChange={handleInputPrivateKey}
                     />
                     <IconButton type="submit" sx={{ p: '10px' }}>
                         <CheckIcon/>

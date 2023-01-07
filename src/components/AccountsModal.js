@@ -15,7 +15,7 @@ const style = {
 function AccountsModal(props) {
     return (
         <Modal
-            open={true}
+            open={false}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
