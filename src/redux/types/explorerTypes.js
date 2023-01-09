@@ -1,0 +1,1 @@
+export const INPUT_ADDRESS = "INPUT_ADDRESS"
