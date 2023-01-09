@@ -11,21 +11,16 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SearchIcon from "@mui/icons-material/Search";
 import AssetCard from "../components/AssetCard";
-import { useDispatch, useSelector } from 'react-redux';
-import { explorerInputAddress } from "../redux/actions";
+import {useState} from "react";
 
 
-function Explorer(props) {
-    console.log('Explorer props > ', props);
-    const inputAddress = useSelector(state => {
-        const { explorerReducer } = state;
-        return explorerReducer.text;
-    })
-    const dispatch = useDispatch();
+function Explorer() {
+    // console.log('Explorer props > ', props);
+    const [inputAddress, setInputAddress] = useState("");
 
     const handleInputAddress = (e) => {
-        // console.log('handle address > ', e.target.value);
-        dispatch(explorerInputAddress(e.target.value));
+        console.log(e.target.value);
+        setInputAddress(e.target.value);
     }
 
     return (
@@ -90,13 +85,14 @@ function Explorer(props) {
                     <InputBase
                         sx={{ml: 1, flex: 1}}
                         placeholder="Wallet address"
+                        value={inputAddress}
                         onChange={handleInputAddress}
                     />
                     <IconButton type="submit" sx={{p: '10px'}}>
                         <SearchIcon/>
                     </IconButton>
                 </Paper>
-                <div sx={{display: "flex", justifyContent: "end"}}>
+                <div style={{display: "flex", justifyContent: "end"}}>
                     <Grid container spacing="47px" sx={{marginLeft: "0px"}}>
                         <Grid item>
                             <AssetCard/>
