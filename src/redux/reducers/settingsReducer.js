@@ -1,36 +1,41 @@
-import {
-    SETTINGS_INPUT_ENDPOINT,
-    SETTINGS_INPUT_NEW_ADDRESS,
-    SETTINGS_INPUT_PRIVATE_KEY
-} from "../types";
+import {SET_ENDPOINT, ADD_NEW_ADDRESS, SET_PRIVATE_KEY, CLEAR_ADDRESS_LIST} from "../types/settingsTypes";
 
 const initialState = {
     endpoint: '',
-    newAddress: '',
+    addressArray: [],
     privateKey: ''
 }
 
 export const settingsReducer = (state  = initialState, action) => {
-    console.log('SETTINGS reducer > ', action)
+    // console.log('SETTINGS reducer action > ', action)
 
     switch (action.type) {
 
-        case SETTINGS_INPUT_ENDPOINT:
+        case SET_ENDPOINT:
             return {
                 ...state,
                 endpoint: action.url
             }
 
-        case SETTINGS_INPUT_NEW_ADDRESS:
+        case ADD_NEW_ADDRESS:
             return {
                 ...state,
-                newAddress: action.address
+                addressArray: [
+                    ...state.addressArray,
+                    action.data
+                ]
             }
 
-        case SETTINGS_INPUT_PRIVATE_KEY:
+        case SET_PRIVATE_KEY:
             return {
                 ...state,
                 privateKey: action.privateKey
+            }
+
+        case CLEAR_ADDRESS_LIST:
+            return {
+                ...state,
+                addressArray: []
             }
 
         default:
