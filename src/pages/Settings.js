@@ -12,6 +12,11 @@ function Settings() {
     const [endpointInput, setEndpointInput] = useState('');
     const [privateKeyInput, setPrivateKeyInput] = useState('');
     const [newAddressInput, setNewAddressInput] = useState('');
+    const [openModal, setOpenModal] = useState(false);
+
+    const handleOpenModal = () => {
+        setOpenModal(true)
+    }
 
     const dispatch = useDispatch();
 
@@ -25,8 +30,8 @@ function Settings() {
         setEndpointInput("");
     }
 
-    const endpointStoreValue = useSelector( state => {
-        const { settingsReducer } = state;
+    const endpointStoreValue = useSelector(state => {
+        const {settingsReducer} = state;
         return settingsReducer.endpoint;
     })
 
@@ -40,8 +45,8 @@ function Settings() {
         setPrivateKeyInput("");
     }
 
-    const privateKeyStoreValue = useSelector( state => {
-        const { settingsReducer } = state;
+    const privateKeyStoreValue = useSelector(state => {
+        const {settingsReducer} = state;
         const slicedPrivateKey = settingsReducer.privateKey.slice(-5);
         return slicedPrivateKey ? "PVT...." + slicedPrivateKey : slicedPrivateKey;
     })
@@ -63,7 +68,7 @@ function Settings() {
     }
 
     const addressArray = useSelector(state => {
-        const { settingsReducer } = state;
+        const {settingsReducer} = state;
         console.log(settingsReducer);
         return settingsReducer.addressArray;
     })
@@ -72,19 +77,27 @@ function Settings() {
         <div>
             <div>
                 <Typography variant="h6">API Endpoint</Typography>
-                <Typography variant="caption">Current endpoint is {endpointStoreValue ? endpointStoreValue : "EMPTY"}</Typography>
+                <Typography variant="caption">Current endpoint
+                    is {endpointStoreValue ? endpointStoreValue : "EMPTY"}</Typography>
                 <Paper
                     component="form"
-                    sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 250, alignSelf: "end", marginBottom: "10px" }}
+                    sx={{
+                        p: '2px 4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        width: 250,
+                        alignSelf: "end",
+                        marginBottom: "10px"
+                    }}
                 >
                     <InputBase
-                        sx={{ ml: 1, flex: 1 }}
+                        sx={{ml: 1, flex: 1}}
                         placeholder="https://wax.greymass.com"
                         value={endpointInput}
                         onChange={handleInputEndpoint}
                         onSubmit={handleSubmitEndpoint}
                     />
-                    <IconButton onClick={handleSubmitEndpoint} type="submit" sx={{ p: '10px' }}>
+                    <IconButton onClick={handleSubmitEndpoint} type="submit" sx={{p: '10px'}}>
                         <CheckIcon/>
                     </IconButton>
                 </Paper>
@@ -92,33 +105,41 @@ function Settings() {
             <Divider/>
             <div>
                 <Typography variant="h6">Accounts list</Typography>
-                <Paper sx={{ width: "100%", maxHeight:"300px", backgroundColor: "azure", marginTop: "10px", marginBottom: "10px", overflowY: "auto" }}>
-                    <Grid container spacing="10px" sx={{ padding: "10px" }}>
-                        { !!addressArray.length && addressArray.map( res => {
-                            return <AccountCard key={res.id} data={res} />
-                        }) }
+                <Paper sx={{
+                    width: "100%",
+                    maxHeight: "300px",
+                    minHeight: "66px",
+                    backgroundColor: "azure",
+                    marginTop: "10px",
+                    marginBottom: "10px",
+                    overflowY: "auto"
+                }}>
+                    <Grid container spacing="10px" sx={{padding: "10px"}}>
+                        {!!addressArray.length && addressArray.map(res => {
+                            return <AccountCard key={res.id} data={res}/>
+                        })}
                     </Grid>
                 </Paper>
-                <div style={{ display: "flex", justifyContent: "start", marginBottom: "10px" }}>
+                <div style={{display: "flex", justifyContent: "start", marginBottom: "10px"}}>
                     <Paper
                         component="form"
-                        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 200, alignSelf: "end" }}
+                        sx={{p: '2px 4px', display: 'flex', alignItems: 'center', width: 200, alignSelf: "end"}}
                     >
                         <InputBase
-                            sx={{ ml: 1, flex: 1 }}
+                            sx={{ml: 1, flex: 1}}
                             placeholder="Wallet address"
                             value={newAddressInput}
                             onChange={handleInputNewAddress}
                             onSubmit={handleSubmitNewAddress}
                         />
-                        <IconButton onClick={handleSubmitNewAddress} type="submit" sx={{ p: '10px' }}>
+                        <IconButton onClick={handleSubmitNewAddress} type="submit" sx={{p: '10px'}}>
                             <AddIcon/>
                         </IconButton>
                     </Paper>
-                    <Button variant="outlined" sx={{ marginLeft: "10px" }}>
+                    <Button onClick={handleOpenModal} variant="outlined" sx={{marginLeft: "10px"}}>
                         Add many
                     </Button>
-                    <Button onClick={handleClearAddressArr} variant="outlined" color="error" sx={{ marginLeft: "10px" }}>
+                    <Button onClick={handleClearAddressArr} variant="outlined" color="error" sx={{marginLeft: "10px"}}>
                         Clear all
                     </Button>
                 </div>
@@ -126,24 +147,25 @@ function Settings() {
             <Divider/>
             <div>
                 <Typography variant="h6">Main private key</Typography>
-                <Typography variant="caption">Current key is {privateKeyStoreValue ? privateKeyStoreValue : "NOT SET"}</Typography>
+                <Typography variant="caption">Current key
+                    is {privateKeyStoreValue ? privateKeyStoreValue : "NOT SET"}</Typography>
                 <Paper
                     component="form"
-                    sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 500, alignSelf: "end" }}
+                    sx={{p: '2px 4px', display: 'flex', alignItems: 'center', width: 500, alignSelf: "end"}}
                 >
                     <InputBase
-                        sx={{ ml: 1, flex: 1 }}
+                        sx={{ml: 1, flex: 1}}
                         placeholder="Private key"
                         value={privateKeyInput}
                         onChange={handleInputPrivateKey}
                         onSubmit={handleSubmitPrivateKey}
                     />
-                    <IconButton onClick={handleSubmitPrivateKey} type="submit" sx={{ p: '10px' }}>
+                    <IconButton onClick={handleSubmitPrivateKey} type="submit" sx={{p: '10px'}}>
                         <CheckIcon/>
                     </IconButton>
                 </Paper>
             </div>
-            <AccountsModal/>
+            <AccountsModal open={openModal} setOpenModal={setOpenModal} />
         </div>
     )
 }
