@@ -4,8 +4,14 @@ import AddIcon from '@mui/icons-material/Add';
 import CheckIcon from '@mui/icons-material/Check';
 import AccountsModal from "../components/AccountsModal";
 import {useDispatch, useSelector} from 'react-redux';
-import {addNewAddress, clearAddressArr, setEndpoint, setPrivateKey} from "../redux/actions/settingsActions";
-import {useState} from 'react';
+import {
+    addNewAddress,
+    clearAddressArr,
+    setEndpoint,
+    setNewAddressList,
+    setPrivateKey
+} from "../redux/actions/settingsActions";
+import {useEffect, useState} from 'react';
 import uniqid from "uniqid";
 
 function Settings() {
@@ -67,11 +73,21 @@ function Settings() {
         dispatch(clearAddressArr());
     }
 
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem('addressList'));
+        console.log(data);
+        dispatch(setNewAddressList(data));
+    }, []);
+
     const addressArray = useSelector(state => {
         const {settingsReducer} = state;
-        console.log(settingsReducer);
         return settingsReducer.addressArray;
     })
+
+    useEffect(() => {
+        console.log('addressArr changed')
+        localStorage.setItem('addressList', JSON.stringify(addressArray));
+    }, [addressArray]);
 
     return (
         <div>
